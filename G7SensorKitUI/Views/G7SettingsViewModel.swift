@@ -170,14 +170,14 @@ class G7SettingsViewModel: ObservableObject {
 
     var lastGlucoseString: String {
         guard let lastReading = lastReading, lastReading.hasReliableGlucose, let quantity = lastReading.glucoseQuantity else {
-            return LocalizedString("– – –", comment: "No glucose value representation (3 dashes for mg/dL)")
+            return LocalizedString(" -   -   - ", comment: "No glucose value representation (3 dashes for mg/dL)")
         }
 
         switch lastReading.glucoseRangeCategory {
         case .some(.belowRange):
-            return LocalizedString("LOW", comment: "String displayed instead of a glucose value below the CGM range")
+            return LocalizedString("低的", comment: "String displayed instead of a glucose value below the CGM range")
         case .some(.aboveRange):
-            return LocalizedString("HIGH", comment: "String displayed instead of a glucose value above the CGM range")
+            return LocalizedString("高的", comment: "String displayed instead of a glucose value above the CGM range")
         default:
             return displayGlucosePreference.formatter.string(from: quantity)!
         }
