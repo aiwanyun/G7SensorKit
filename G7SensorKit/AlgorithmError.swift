@@ -45,7 +45,7 @@ extension AlgorithmState {
                 return LocalizedString("传感器失败", comment: "The description of sensor algorithm state when sensor failed.")
             }
         case .unknown(let rawValue):
-            return String(format: LocalizedString("Sensor is in unknown state %1$d", comment: "The description of sensor algorithm state when raw value is unknown. (1: missing data details)"), rawValue)
+            return String(format: LocalizedString("传感器处于未知状态 %1$d", comment: "The description of sensor algorithm state when raw value is unknown. (1: missing data details)"), rawValue)
         }
     }
 }

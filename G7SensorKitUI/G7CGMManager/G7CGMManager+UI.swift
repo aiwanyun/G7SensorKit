@@ -48,42 +48,42 @@ extension G7CGMManager: CGMManagerUI {
 
         if lifecycleState == .searching {
             return G7DeviceStatusHighlight(
-                localizedMessage: LocalizedString("Searching for\nSensor", comment: "G7 Status highlight text for searching for sensor"),
+                localizedMessage: LocalizedString("正在搜索\n传感器", comment: "G7 Status highlight text for searching for sensor"),
                 imageName: "dot.radiowaves.left.and.right",
                 state: .normalCGM)
         }
 
         if lifecycleState == .expired {
             return G7DeviceStatusHighlight(
-                localizedMessage: LocalizedString("Sensor\nExpired", comment: "G7 Status highlight text for sensor expired"),
+                localizedMessage: LocalizedString("传感器\n已过期", comment: "G7 Status highlight text for sensor expired"),
                 imageName: "clock",
                 state: .normalCGM)
         }
 
         if lifecycleState == .failed {
             return G7DeviceStatusHighlight(
-                localizedMessage: LocalizedString("Sensor\nFailed", comment: "G7 Status highlight text for sensor failed"),
+                localizedMessage: LocalizedString("传感器\n失败", comment: "G7 Status highlight text for sensor failed"),
                 imageName: "exclamationmark.circle.fill",
                 state: .critical)
         }
 
         if let latestReadingReceivedAt = state.latestReadingTimestamp, latestReadingReceivedAt.timeIntervalSinceNow < -.minutes(15) {
             return G7DeviceStatusHighlight(
-                localizedMessage: LocalizedString("Signal\nLoss", comment: "G7 Status highlight text for signal loss"),
+                localizedMessage: LocalizedString("信号\n丢失", comment: "G7 Status highlight text for signal loss"),
                 imageName: "exclamationmark.circle.fill",
                 state: .warning)
         }
 
         if let latestReading = latestReading, latestReading.algorithmState.isInSensorError {
             return G7DeviceStatusHighlight(
-                localizedMessage: LocalizedString("Sensor\nIssue", comment: "G7 Status highlight text for sensor error"),
+                localizedMessage: LocalizedString("传感器\n问题", comment: "G7 Status highlight text for sensor error"),
                 imageName: "exclamationmark.circle.fill",
                 state: .warning)
         }
 
         if lifecycleState == .warmup {
             return G7DeviceStatusHighlight(
-                localizedMessage: LocalizedString("Sensor\nWarmup", comment: "G7 Status highlight text for sensor warmup"),
+                localizedMessage: LocalizedString("传感器\n预热", comment: "G7 Status highlight text for sensor warmup"),
                 imageName: "clock",
                 state: .normalCGM)
         }
