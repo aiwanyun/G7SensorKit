@@ -15,7 +15,7 @@ extension AlgorithmError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .unreliableState:
-            return LocalizedString("葡萄糖数据不可用", comment: "Error description for unreliable state")
+            return LocalizedString("血糖数据不可用", comment: "Error description for unreliable state")
         }
     }
 
@@ -38,14 +38,14 @@ extension AlgorithmState {
             case .stopped:
                 return LocalizedString("传感器停止", comment: "The description of sensor algorithm state when sensor is stopped.")
             case .warmup, .questionMarks:
-                return LocalizedString("传感器正在变暖", comment: "The description of sensor algorithm state when sensor is warming up.")
+                return LocalizedString("传感器正在预热", comment: "The description of sensor algorithm state when sensor is warming up.")
             case .expired:
                 return LocalizedString("传感器过期", comment: "The description of sensor algorithm state when sensor is expired.")
             case .sensorFailed:
                 return LocalizedString("传感器失败", comment: "The description of sensor algorithm state when sensor failed.")
             }
         case .unknown(let rawValue):
-            return String(format: LocalizedString("传感器处于未知状态 %1$d", comment: "The description of sensor algorithm state when raw value is unknown. (1: missing data details)"), rawValue)
+            return String(format: LocalizedString("Sensor is in unknown state %1$d", comment: "The description of sensor algorithm state when raw value is unknown. (1: missing data details)"), rawValue)
         }
     }
 }

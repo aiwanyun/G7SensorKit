@@ -170,7 +170,7 @@ class G7SettingsViewModel: ObservableObject {
 
     var lastGlucoseString: String {
         guard let lastReading = lastReading, lastReading.hasReliableGlucose, let quantity = lastReading.glucoseQuantity else {
-            return LocalizedString(" -   -   - ", comment: "No glucose value representation (3 dashes for mg/dL)")
+            return LocalizedString("– – –", comment: "No glucose value representation (3 dashes for mg/dL)")
         }
 
         switch lastReading.glucoseRangeCategory {

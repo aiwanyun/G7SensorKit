@@ -69,7 +69,7 @@ struct G7SettingsView: View {
                         .foregroundColor(.secondary)
                 }
                 HStack {
-                    Text(LocalizedString("恩典时期结束", comment: "title for g7 settings row showing sensor grace period end time"))
+                    Text(LocalizedString("宽限期结束", comment: "title for g7 settings row showing sensor grace period end time"))
                     Spacer()
                     Text(timeFormatter.string(from: activatedAt.addingTimeInterval(G7Sensor.lifetime + G7Sensor.gracePeriod)))
                         .foregroundColor(.secondary)
@@ -77,7 +77,7 @@ struct G7SettingsView: View {
             }
 
             Section("Last Reading") {
-                LabeledValueView(label: LocalizedString("葡萄糖", comment: "Field label"),
+                LabeledValueView(label: LocalizedString("血糖", comment: "Field label"),
                                  value: viewModel.lastGlucoseString)
                 LabeledDateView(label: LocalizedString("时间", comment: "Field label"),
                                 date: viewModel.latestReadingTimestamp,
@@ -122,6 +122,14 @@ struct G7SettingsView: View {
                 HStack {
                     Toggle(LocalizedString("上传读数", comment: "title for g7 config settings to upload readings"), isOn: $viewModel.uploadReadings)
                 }
+            }
+            
+            Section () {
+                Button(LocalizedString("打开dexcom应用", comment:"Opens the dexcom G7 app to allow users to manage active sensors"), action: {
+                    if let appURL = URL(string: "dexcomg7://") {
+                        UIApplication.shared.open(appURL)
+                    }
+                })
             }
 
             Section () {

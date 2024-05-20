@@ -22,7 +22,7 @@ enum G7ProgressBarState {
         case .sensorExpired:
             return LocalizedString("传感器过期", comment: "G7 Progress bar label when sensor expired")
         case .warmupProgress:
-            return LocalizedString("热身完成", comment: "G7 Progress bar label when sensor in warmup")
+            return LocalizedString("预热完成", comment: "G7 Progress bar label when sensor in warmup")
         case .sensorFailed:
             return LocalizedString("传感器失败", comment: "G7 Progress bar label when sensor failed")
         case .lifetimeRemaining:
